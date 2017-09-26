@@ -2,8 +2,8 @@
 
 set -e
 
-apk --update --no-cache add bash
-apk --no-cache add --virtual .pb-build make cmake autoconf automake curl tar libtool g++
+apk --update --no-cache add bash curl
+apk --no-cache add --virtual .pb-build make cmake autoconf automake tar libtool g++
 
 mkdir -p /tmp/protobufs
 cd /tmp/protobufs
