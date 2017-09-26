@@ -1,2 +1,2 @@
-FROM safetyculture/protoc-docker
+FROM safetyculture/protoc
 LABEL maintainer="SafetyCulture <info@safetyculture.io>"
