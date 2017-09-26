@@ -14,6 +14,7 @@ TAG='latest'
 
 buildAll () {
   docker build -t $REGISTRY/$BASE_IMAGE:$TAG .
+  IMAGES+=( $REGISTRY/$BASE_IMAGE:$TAG )
   for i in ${!DIRS[@]};
   do
     echo
