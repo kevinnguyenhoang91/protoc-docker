@@ -5,7 +5,7 @@ set -e
 echo "Building Docker containers"
 
 declare -a IMAGES
-DIRS=( $(basename $(find . ! -path . -type d -not -path '*/\.*')) )
+DIRS=( $(basename $(echo */)) )
 
 REGISTRY='safetyculture'
 BASE_IMAGE='protoc'
