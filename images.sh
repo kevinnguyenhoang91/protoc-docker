@@ -9,36 +9,38 @@ DIRS=( $(basename $(echo */)) )
 
 REGISTRY='safetyculture'
 BASE_IMAGE='protoc'
-TAG=$(git rev-parse --short HEAD)
-TAG='latest'
+BASE_TAG=`cat version.txt`
 
 buildAll () {
-  docker build -t $REGISTRY/$BASE_IMAGE:$TAG .
-  IMAGES+=( $REGISTRY/$BASE_IMAGE:$TAG )
+  echo
+  echo "Building $BASE_IMAGE:$BASE_TAG ... "
+  # docker build -t $REGISTRY/$BASE_IMAGE:$BASE_TAG .
+  IMAGES+=( $REGISTRY/$BASE_IMAGE:$BASE_TAG )
   for i in ${!DIRS[@]};
   do
+    TAG=`cat ${DIRS[$i]}/version.txt`
     echo
-    echo "Building ${DIRS[$i]}... "
+    echo "Building ${DIRS[$i]}:$TAG ... "
     IMAGE=$REGISTRY/$BASE_IMAGE-${DIRS[$i]}:$TAG
-    docker build -t $IMAGE ./${DIRS[$i]}
+    # docker build -t $IMAGE ./${DIRS[$i]}
     IMAGES+=( $IMAGE )
   done
 }
 
-while [[ $# > 1 ]]
-do
-  key="$1"
+# while [[ $# > 1 ]]
+# do
+#   key="$1"
 
-  case $key in
-    -t|--tag)
-      TAG=$2
-      shift
-      ;;
-    *)
-      ;;
-  esac
-  shift
-done
+#   case $key in
+#     -t|--tag)
+#       TAG=$2
+#       shift
+#       ;;
+#     *)
+#       ;;
+#   esac
+#   shift
+# done
 
 buildAll
 
