@@ -14,4 +14,11 @@ git submodule update --init
 make grpc_cpp_plugin
 ln -s /usr/local/grpc/bins/opt/grpc_cpp_plugin  /usr/local/bin/grpc_cpp_plugin
 
+# Install the protoc-gen-cruxclient plugin
+mkdir -p /usr/local/cruxclient
+git clone https://github.com/SafetyCulture/s12-proto.git /usr/local/cruxclient
+cd /usr/local/cruxclient
+git checkout v$CRUX_CLIENT_RELEASE
+make install-cruxclient
+
 apk del .build
