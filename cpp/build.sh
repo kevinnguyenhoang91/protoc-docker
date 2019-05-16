@@ -12,7 +12,7 @@ cd /usr/local/grpc
 git checkout v$GRPC_RELEASE
 git submodule update --init
 make grpc_cpp_plugin
-ln -s /usr/local/grpc/bins/opt/grpc_cpp_plugin  /usr/local/bin/grpc_cpp_plugin
+mv /usr/local/grpc/bins/opt/grpc_cpp_plugin  /usr/local/bin/grpc_cpp_plugin
 
 # Install the protoc-gen-cruxclient plugin
 mkdir -p /usr/local/cruxclient
@@ -21,4 +21,6 @@ cd /usr/local/cruxclient
 git checkout v$CRUX_CLIENT_RELEASE
 make install-cruxclient
 
+rm -rf /usr/local/grpc
+rm -rf /usr/local/cruxclient
 apk del .build
