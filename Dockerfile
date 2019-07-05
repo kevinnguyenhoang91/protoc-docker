@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.10
 LABEL maintainer="SafetyCulture <info@safetyculture.io>"
 
 ENV PROTOC_VERSION 3.7.1
