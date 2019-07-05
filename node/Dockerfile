@@ -1,12 +1,8 @@
-FROM safetyculture/protoc
+FROM safetyculture/protoc:1.4.0
 LABEL maintainer="SafetyCulture <info@safetyculture.io>"
 
-ENV NODE_VERSION 8.8.1
-ENV GRPC_RELEASE 1.7.0
+ENV GRPC_RELEASE 1.20.1
 
-# install dependencies and build/install Go
+# install dependencies
 ADD . /src
 RUN /src/build.sh
-
-COPY script.sh /opt/safetyculture/script.sh
-ENTRYPOINT ["/opt/safetyculture/script.sh"]
