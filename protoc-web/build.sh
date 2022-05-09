@@ -7,7 +7,7 @@ apk add --no-cache --virtual .build protobuf-dev libprotobuf libprotoc git opens
 
 # Install the protoc-gen-grpc-web
 mkdir -p /usr/local/grpc-web
-git clone https://github.com/grpc/grpc-web.git /usr/local/grpc-web
+git clone https://github.com/SafetyCulture/grpc-web.git /usr/local/grpc-web
 cd /usr/local/grpc-web
 git checkout $GRPC_WEB_RELEASE
 make install-plugin
