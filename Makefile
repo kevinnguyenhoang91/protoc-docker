@@ -29,7 +29,7 @@ swift: ## Builds the protoc docker container for `swift`
 web: ## Builds the protoc docker container for `web`
 	$(call build,protoc-web)
 
-REGISTRY=ghcr.io/safetyculture
+REGISTRY=ghcr.io/kevinnguyenhoang91
 
 .PHONY: build
 build = echo "Building Docker container $(1)"; docker build --no-cache -t $(REGISTRY)/$(1):$(shell cat $(1)/version.txt) ./$(1)

@@ -2,7 +2,7 @@
 
 set -e
 
-REPOSITORY="ghcr.io/safetyculture"
+REPOSITORY="ghcr.io/kevinnguyenhoang91"
 PLATFORM="linux/amd64,linux/arm64"
 
 VERSION_FILE="$IMAGE/version.txt"
