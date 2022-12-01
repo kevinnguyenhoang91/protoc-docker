@@ -3,7 +3,7 @@
 set -e
 
 apt-get -q update
-apt-get -q install -y libz-dev unzip patch patchelf
+apt-get -q install -y libz-dev unzip patch patchelf build-essential
 
 # Install the protoc-gen-swift protoc-gen-swiftgrpc plugins
 mkdir -p /usr/local/grpc
